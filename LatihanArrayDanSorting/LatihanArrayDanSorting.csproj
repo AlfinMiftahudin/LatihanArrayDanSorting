@@ -44,6 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BubbleSort.cs" />
+    <Compile Include="Assets\JumlahTotal.cs" />
+    <Compile Include="Assets\MaxMin.cs" />
+    <Compile Include="Assets\ReverseElement.cs" />
+    <Compile Include="Assets\SelectionSort.cs" />
+    <Compile Include="Models\OpsArray.cs" />
     <Compile Include="Models\SortOption.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

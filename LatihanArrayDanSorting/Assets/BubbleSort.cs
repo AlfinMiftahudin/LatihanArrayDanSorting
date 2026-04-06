@@ -11,10 +11,10 @@ namespace LatihanArrayDanSorting.Assets
     {
         public override void Sort(int[] arr)
         {
-            bool Sorted = false;
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length-1; i++)
             {
-                for (int j = 0; j < arr.Length-1; j++)
+            bool Sorted = false;
+                for (int j = 0; j < arr.Length-i-1; j++)
                 {
                     if (arr[j] > arr[j+1])
                     {
@@ -32,7 +32,7 @@ namespace LatihanArrayDanSorting.Assets
             int index = 0;
             foreach (var item in arr)
             {
-                Console.Write(index<arr.Length-1 ? $"{arr[index]}, " : $"{arr.Length} ");
+                Console.Write(index<arr.Length-1 ? $"{arr[index]}, " : $"{arr[index]} ");
                 index++;
             }
             Console.WriteLine();

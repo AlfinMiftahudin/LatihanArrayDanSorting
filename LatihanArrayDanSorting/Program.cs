@@ -14,9 +14,10 @@ namespace LatihanArrayDanSorting
             GarisBaru();
             Console.Write("pilih opsi : ");
             SortOption sort;
+            OpsArray hitung;
             while (true)
             {
-            int[] NilaiArray = { 2, 5, 1, 6, 22, 11, 23, 42, 14 };
+                int[] NilaiArray = { 2, 5, 1, 6, 22, 11, 23, 42, 14, 76, 62 };
 
                 int PilihOpsi = InputAngka();
                 switch (PilihOpsi)
@@ -31,13 +32,37 @@ namespace LatihanArrayDanSorting
                         break;
 
                     case 2:
-                        Console.WriteLine("hitung nilai array");
+                        Console.Clear();
+                        TampilkanMenuHitung(NilaiArray);
+                        Console.WriteLine("pilih opsi menu : ");
+                        while (true)
+                        {
+                            int OpsiSorting = InputAngka();
+                            switch (OpsiSorting)
+                            {
+                                case 1:
+                                    hitung = new JumlahTotal();
+                                    hitung.Hitung(NilaiArray);
+                                    break;
+                                case 2:
+                                    hitung = new MaxMin();
+                                    hitung.Hitung(NilaiArray);
+                                    break;
+                                default:
+                                    Console.Write("sorting tidak valid tolong isi kembali : ");
+                                    continue;
+                            }
+                            break;
+                        }
+
                         break;
 
                     case 3:
-                        Console.WriteLine("balikkan nilai");
+                        hitung = new ReverseElement();
+                        hitung.Hitung(NilaiArray);
                         break;
 
+                           //sorting
                     case 4:
                         Console.Clear();
                         TampilkanMenuSorting(NilaiArray);
@@ -52,7 +77,8 @@ namespace LatihanArrayDanSorting
                                     sort.Sort(NilaiArray);
                                     break;
                                 case 2:
-                                    Console.WriteLine("ini adalah Menu Selection Sorting");
+                                    sort = new SelectionSort();
+                                    sort.Sort(NilaiArray);
                                     break;
                                 default:
                                     Console.Write("sorting tidak valid tolong isi kembali : ");
@@ -61,11 +87,12 @@ namespace LatihanArrayDanSorting
                             break;
                         }
                         break;
+                        //penutup sorting
 
                     default:
                         Console.Write("opsi tidak valid tolong isi kembali : ");
                         continue;
-                   
+
                 }
                 break;
 
@@ -98,17 +125,34 @@ namespace LatihanArrayDanSorting
             Console.WriteLine("3. membalikkan nilai array");
             Console.WriteLine("4. sorting");
         }
-        static void TampilkanMenuSorting(int[] arr)
+        static void TampilkanMenuHitung(int[] arr)
         {
             GarisBaru();
-            Console.WriteLine("Bubble Sort");
-            Console.WriteLine("selection Sort");
+            Console.WriteLine("1. Hitung total & Nilai rata-rata");
+            Console.WriteLine("2. Nilai Max & Min");
             GarisBaru();
             int index = 0;
             Console.WriteLine("nilai awal : ");
             foreach (var item in arr)
             {
-                Console.Write(index<arr.Length-1 ? $"{arr[index]}, " : $"{arr[index]} ");
+                Console.Write(index < arr.Length - 1 ? $"{arr[index]}, " : $"{arr[index]} ");
+                index++;
+            }
+            Console.WriteLine("");
+            GarisBaru();
+
+        }
+        static void TampilkanMenuSorting(int[] arr)
+        {
+            GarisBaru();
+            Console.WriteLine("Bubble Sort");
+            Console.WriteLine("Selection Sort");
+            GarisBaru();
+            int index = 0;
+            Console.WriteLine("nilai awal : ");
+            foreach (var item in arr)
+            {
+                Console.Write(index < arr.Length - 1 ? $"{arr[index]}, " : $"{arr[index]} ");
                 index++;
             }
             Console.WriteLine("");
